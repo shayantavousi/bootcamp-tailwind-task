@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسک تیلویند</title>
+    <link rel="stylesheet" href="./build/tailwind.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+  </head>
+  <body class="bg-slate-100">
+    <main class="grid grid-cols-12 grid-rows-[50px_1fr] gap-y-6 gap-x-4 container max-w-screen-xl mx-auto p-4">
+      <div class="flex text-2xl font-black justify-center items-center text-indigo-900 col-span-12">سبد دوره های شما</div>
+      <!-- !Products Wrapper-->
+      <div class="flex flex-col col-span-12 md:col-span-9">
+        <!-- ?Products List -->
+        <div
+          x-data="{products:[
+          {id:1,title:'دوره حرفه ای و متخصص Node.js',price:'۲,۵۷۸,۹۰۰',hours:'۴۵ ساعت',sessionsNo:'۲۷۰ جلسه',studentNo:'۱۳۰۰+ دانشجو',teacher:'صاحب محمدی',imageUrl:'node-js.jpg'},
+          {id:2,title:'دوره حرفه ای و متخصص Next.js',price:'۲,۵۷۸,۹۰۰',hours:'۴۵ ساعت',sessionsNo:'۲۷۰ جلسه',studentNo:'۱۳۰۰+',teacher:'صاحب محمدی',imageUrl:'Next-js.webp'},
+          {id:3,title:'دوره جامع و پیشرفته جاوااسکریپت',price:'۲,۵۷۸,۹۰۰',hours:'۴۵ ساعت',sessionsNo:'۲۷۰ جلسه',studentNo:'۱۳۰۰+',teacher:'صاحب محمدی',imageUrl:'javascript.png'},
+          {id:4,title:'دوره طراحی وب ریسپانسیو',price:'۲,۵۷۸,۹۰۰',hours:'۴۵ ساعت',sessionsNo:'۲۷۰ جلسه',studentNo:'۱۳۰۰+',teacher:'صاحب محمدی',imageUrl:'HTML&CSS.png'},
+          {id:5,title:'دوره حرفه ای و متخصص ریکت و ریداکس',price:'۲,۵۷۸,۹۰۰',hours:'۴۵ ساعت',sessionsNo:'۲۷۰ جلسه',studentNo:'۱۳۰۰+',teacher:'صاحب محمدی',imageUrl:'React-js.png'}
+          ]}"
+          class="flex flex-col gap-y-4"
+        >
+          <template x-for="product in products" :key="product.id">
+            <!-- Course Card -->
+            <div class="flex justify-between h-28 sm:min-h-32 lg:h-40 px-2 py-4 bg-white gap-x-2 rounded-md shadow-md">
+              <!-- image container -->
+              <div class="flex justify-center items-center w-2/5 sm:w-1/4 rounded-md overflow-hidden">
+                <img :src="'/assets/images/'+product.imageUrl" alt="" class="object-cover h-full w-full" />
+              </div>
+              <!-- detail container -->
+              <div class="flex flex-col sm:flex-row justify-between gap-y-4 py-2 flex-1">
+                <div class="flex flex-col gap-y-2 justify-around">
+                  <h2 x-text="product.title" class="text-xs sm:text-base lg:text-xl font-black text-indigo-900"></h2>
+                  <div class="hidden sm:grid grid-cols-[3fr_5fr] gap-2 text-slate-500 text-xs lg:text-base">
+                    <div class="flex gap-x-1">
+                      <span>
+                        <svg class="size-3 lg:size-5" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 8V12L14.5 14.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                          <path
+                            d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z"
+                            stroke-width="1.5"
+                          />
+                        </svg>
+                      </span>
+                      <span x-text="product.hours"></span>
+                    </div>
+                    <div class="flex gap-x-1">
+                      <span
+                        ><svg class="size-3 lg:size-5" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="12" cy="6" r="4" stroke-width="1.5" />
+                          <path
+                            d="M19.9975 18C20 17.8358 20 17.669 20 17.5C20 15.0147 16.4183 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22C14.231 22 15.8398 21.8433 17 21.5634"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                          /></svg
+                      ></span>
+                      <span x-text="product.studentNo"></span>
+                    </div>
+                    <div class="flex gap-x-1">
+                      <span>
+                        <svg class="size-3 lg:size-5" stroke="none" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M14.9506 1.25H16.0494C16.7142 1.24996 17.2871 1.24993 17.7458 1.31161C18.2375 1.37771 18.7087 1.52677 19.091 1.90901C19.3266 2.14461 19.4736 2.41402 19.5672 2.70117L20.3269 2.38462C20.3406 2.37892 20.3543 2.37322 20.368 2.36751C20.6449 2.25201 20.9246 2.13541 21.1637 2.07488C21.4289 2.00773 21.8212 1.96185 22.1934 2.20994C22.5655 2.45803 22.6741 2.83784 22.7141 3.10851C22.7502 3.3525 22.7501 3.65545 22.75 3.95554C22.75 3.97037 22.75 3.98519 22.75 4V6C22.75 6.01481 22.75 6.02964 22.75 6.04447C22.7501 6.34456 22.7502 6.64751 22.7141 6.8915C22.6741 7.16217 22.5655 7.54198 22.1934 7.79007C21.8212 8.03815 21.4289 7.99227 21.1637 7.92513C20.9245 7.8646 20.6449 7.748 20.368 7.63249C20.3543 7.62679 20.3406 7.62108 20.3269 7.61539L19.5672 7.29884C19.4736 7.58599 19.3266 7.8554 19.091 8.09099C18.7087 8.47324 18.2375 8.6223 17.7458 8.6884C17.2871 8.75007 16.7142 8.75004 16.0494 8.75001H14.9506C14.2858 8.75004 13.7129 8.75007 13.2542 8.6884C12.7625 8.6223 12.2913 8.47324 11.909 8.09099C11.5268 7.70875 11.3777 7.23748 11.3116 6.74585C11.2499 6.2871 11.25 5.71424 11.25 5.04937V4.95064C11.25 4.28577 11.2499 3.71291 11.3116 3.25416C11.3777 2.76252 11.5268 2.29126 11.909 1.90901C12.2913 1.52677 12.7625 1.37771 13.2542 1.31161C13.7129 1.24993 14.2858 1.24996 14.9506 1.25ZM19.75 5.75L20.9038 6.23077C21.0388 6.28701 21.1505 6.33348 21.248 6.37205C21.25 6.26715 21.25 6.14621 21.25 6V4C21.25 3.85379 21.25 3.73286 21.248 3.62796C21.1505 3.66652 21.0388 3.713 20.9038 3.76923L19.75 4.25V4.86552C19.75 4.89372 19.75 4.92209 19.75 4.95064V5.04937C19.75 5.07791 19.75 5.10628 19.75 5.13448V5.75ZM18.25 5C18.25 4.27169 18.2484 3.80091 18.2018 3.45403C18.158 3.12873 18.0874 3.02677 18.0303 2.96967C17.9732 2.91258 17.8713 2.84197 17.546 2.79823C17.1991 2.7516 16.7283 2.75 16 2.75H15C14.2717 2.75 13.8009 2.7516 13.454 2.79823C13.1287 2.84197 13.0268 2.91258 12.9697 2.96967C12.9126 3.02677 12.842 3.12873 12.7982 3.45403C12.7516 3.80091 12.75 4.27169 12.75 5C12.75 5.72831 12.7516 6.1991 12.7982 6.54598C12.842 6.87128 12.9126 6.97324 12.9697 7.03033C13.0268 7.08743 13.1287 7.15804 13.454 7.20177C13.8009 7.24841 14.2717 7.25 15 7.25H16C16.7283 7.25 17.1991 7.24841 17.546 7.20177C17.8713 7.15804 17.9732 7.08743 18.0303 7.03033C18.0874 6.97324 18.158 6.87128 18.2018 6.54598C18.2484 6.1991 18.25 5.72831 18.25 5ZM9.45109 1.25L9.5 1.25C9.91421 1.25 10.25 1.58579 10.25 2C10.25 2.41422 9.91421 2.75 9.5 2.75C7.83789 2.75 6.65724 2.75123 5.75133 2.85831C4.86197 2.96344 4.33563 3.16158 3.93822 3.48772C3.77366 3.62277 3.62277 3.77366 3.48772 3.93823C3.16158 4.33563 2.96344 4.86197 2.85831 5.75133C2.75123 6.65725 2.75 7.83789 2.75 9.5V11C2.75 11.459 2.75016 11.8736 2.75371 12.25H21.2463C21.2498 11.8736 21.25 11.459 21.25 11V10C21.25 9.58579 21.5858 9.25 22 9.25C22.4142 9.25 22.75 9.58579 22.75 10V11.0549C22.75 11.7174 22.75 12.3176 22.7368 12.8591C22.7455 12.9047 22.75 12.9518 22.75 13C22.75 13.0641 22.7419 13.1264 22.7268 13.1858C22.7103 13.6299 22.682 14.0312 22.6335 14.3918C22.5125 15.2919 22.2536 16.0497 21.6517 16.6517C21.0497 17.2536 20.2919 17.5125 19.3918 17.6335C18.5248 17.75 17.4225 17.75 16.0549 17.75H12.75V21.25H16C16.4142 21.25 16.75 21.5858 16.75 22C16.75 22.4142 16.4142 22.75 16 22.75H8C7.58579 22.75 7.25 22.4142 7.25 22C7.25 21.5858 7.58579 21.25 8 21.25H11.25V17.75H7.94513C6.57754 17.75 5.47522 17.75 4.60825 17.6335C3.70814 17.5125 2.95027 17.2536 2.34835 16.6517C1.74643 16.0497 1.48754 15.2919 1.36652 14.3918C1.31805 14.0312 1.28974 13.6299 1.2732 13.1858C1.25805 13.1264 1.25 13.0641 1.25 13C1.25 12.9518 1.25454 12.9047 1.26323 12.859C1.24998 12.3176 1.24999 11.7174 1.25 11.0549L1.25 9.45109C1.24999 7.84883 1.24998 6.57947 1.36868 5.57525C1.49055 4.54428 1.74638 3.69558 2.3282 2.98664C2.52558 2.74612 2.74612 2.52559 2.98663 2.3282C3.69558 1.74639 4.54428 1.49055 5.57525 1.36868C6.57947 1.24998 7.84883 1.24999 9.45109 1.25ZM2.80673 13.75C2.81924 13.9064 2.83451 14.0533 2.85315 14.1919C2.9518 14.9257 3.13225 15.3142 3.40901 15.591C3.68577 15.8678 4.07435 16.0482 4.80812 16.1469C5.56347 16.2484 6.56459 16.25 8 16.25H16C17.4354 16.25 18.4365 16.2484 19.1919 16.1469C19.9257 16.0482 20.3142 15.8678 20.591 15.591C20.8678 15.3142 21.0482 14.9257 21.1469 14.1919C21.1655 14.0533 21.1808 13.9064 21.1933 13.75H2.80673Z"
+                          />
+                        </svg>
+                      </span>
+                      <span x-text="product.sessionsNo"></span>
+                    </div>
+                    <div class="flex gap-x-1 text-orange-500">
+                      <span>
+                        <svg class="size-3 lg:size-5 fill-orange-100" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M17 2.45597C17.7415 2.59747 18.1811 2.75299 18.5609 3.22083C19.0367 3.80673 19.0115 4.43998 18.9612 5.70647C18.7805 10.2595 17.7601 16 12.0002 16C6.24021 16 5.21983 10.2595 5.03907 5.70647C4.98879 4.43998 4.96365 3.80673 5.43937 3.22083C5.91508 2.63494 6.48445 2.53887 7.62318 2.34674C8.74724 2.15709 10.2166 2 12.0002 2C12.7184 2 13.3857 2.02548 14 2.06829"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                          />
+                          <path
+                            d="M19 5L19.9486 5.31621C20.9387 5.64623 21.4337 5.81124 21.7168 6.20408C22 6.59692 22 7.11873 21.9999 8.16234L21.9999 8.23487C21.9999 9.09561 21.9999 9.52598 21.7927 9.87809C21.5855 10.2302 21.2093 10.4392 20.4569 10.8572L17.5 12.5"
+                            stroke-width="1.5"
+                          />
+                          <path
+                            d="M4.99994 5L4.05132 5.31621C3.06126 5.64623 2.56623 5.81124 2.2831 6.20408C1.99996 6.59692 1.99997 7.11873 2 8.16234L2 8.23487C2.00003 9.09561 2.00004 9.52598 2.20723 9.87809C2.41441 10.2302 2.79063 10.4392 3.54305 10.8572L6.49994 12.5"
+                            stroke-width="1.5"
+                          />
+                          <path d="M12 17V19" stroke-width="1.5" stroke-linecap="round" />
+                          <path
+                            d="M15.5 22H8.5L8.83922 20.3039C8.93271 19.8365 9.34312 19.5 9.8198 19.5H14.1802C14.6569 19.5 15.0673 19.8365 15.1608 20.3039L15.5 22Z"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                          <path d="M18 22H6" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>
+                      </span>
+                      <span>چالش های هفتگی</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col justify-between">
+                  <div class="hidden sm:flex gap-x-2 items-center">
+                    <div class="flex justify-center items-center size-8 lg:size-12 rounded-xl lg:rounded-2xl overflow-hidden">
+                      <img class="w-full h-full object-cover" src="/assets/images/teacher-1.avif" alt="" />
+                    </div>
+                    <div class="flex flex-col">
+                      <h1 class="text-slate-400 text-[8px] lg:text-sm">مدرس دوره</h1>
+                      <p class="text-indigo-900 text-sm lg:text-lg font-black">صاحب محمدی</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between gap-x-10">
+                    <div class="flex items-baseline gap-x-1">
+                      <div x-text="product.price" class="font-black text-xl lg:text-3xl text-indigo-600"></div>
+                      <div class="text-xs lg:text-sm text-slate-500">تومان</div>
+                    </div>
+                    <span class="border border-slate-200 rounded-lg p-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" class="size-3 lg:size-5 stroke-2 stroke-red-500 fill-red-500">
+                        <path
+                          d="M 49 1 C 47.34 1 46 2.34 46 4 C 46 5.66 47.34 7 49 7 L 79 7 C 80.66 7 82 5.66 82 4 C 82 2.34 80.66 1 79 1 L 49 1 z M 24 15 C 16.83 15 11 20.83 11 28 C 11 35.17 16.83 41 24 41 L 101 41 L 101 104 C 101 113.37 93.37 121 84 121 L 44 121 C 34.63 121 27 113.37 27 104 L 27 52 C 27 50.34 25.66 49 24 49 C 22.34 49 21 50.34 21 52 L 21 104 C 21 116.68 31.32 127 44 127 L 84 127 C 96.68 127 107 116.68 107 104 L 107 40.640625 C 112.72 39.280625 117 34.14 117 28 C 117 20.83 111.17 15 104 15 L 24 15 z M 24 21 L 104 21 C 107.86 21 111 24.14 111 28 C 111 31.86 107.86 35 104 35 L 24 35 C 20.14 35 17 31.86 17 28 C 17 24.14 20.14 21 24 21 z M 50 55 C 48.34 55 47 56.34 47 58 L 47 104 C 47 105.66 48.34 107 50 107 C 51.66 107 53 105.66 53 104 L 53 58 C 53 56.34 51.66 55 50 55 z M 78 55 C 76.34 55 75 56.34 75 58 L 75 104 C 75 105.66 76.34 107 78 107 C 79.66 107 81 105.66 81 104 L 81 58 C 81 56.34 79.66 55 78 55 z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+      <!-- !Payment Card -->
+      <div class="col-span-12 md:col-span-3">
+        <div class="flex flex-col bg-white rounded-md shadow-md py-6 gap-y-4 sticky top-4">
+          <div class="flex items-center gap-x-2 border-b pb-2 px-6 sm:px-4">
+            <span>
+              <svg class="size-4 lg:size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M22 6.00008V8.42008C22 10.0001 21 11.0001 19.42 11.0001H16V4.01008C16 2.90008 16.91 1.99008 18.02 2.00008C19.11 2.01008 20.11 2.45008 20.83 3.17008C21.55 3.90008 22 4.90008 22 6.00008Z"
+                  fill="#292D32"
+                />
+                <path
+                  opacity="0.4"
+                  d="M2 7V21C2 21.83 2.94 22.3 3.6 21.8L5.31 20.52C5.71 20.22 6.27 20.26 6.63 20.62L8.29 22.29C8.68 22.68 9.32 22.68 9.71 22.29L11.39 20.61C11.74 20.26 12.3 20.22 12.69 20.52L14.4 21.8C15.06 22.29 16 21.82 16 21V4C16 2.9 16.9 2 18 2H7H6C3 2 2 3.79 2 6V7Z"
+                  fill="#292D32"
+                />
+                <path
+                  d="M12 12.2598H9C8.59 12.2598 8.25 12.5998 8.25 13.0098C8.25 13.4198 8.59 13.7598 9 13.7598H12C12.41 13.7598 12.75 13.4198 12.75 13.0098C12.75 12.5998 12.41 12.2598 12 12.2598Z"
+                  fill="#292D32"
+                />
+                <path
+                  d="M9 9.75977H12C12.41 9.75977 12.75 9.41977 12.75 9.00977C12.75 8.59977 12.41 8.25977 12 8.25977H9C8.59 8.25977 8.25 8.59977 8.25 9.00977C8.25 9.41977 8.59 9.75977 9 9.75977Z"
+                  fill="#292D32"
+                />
+                <path
+                  d="M5.9707 8.00977C5.4107 8.00977 4.9707 8.45977 4.9707 9.00977C4.9707 9.55977 5.4207 10.0098 5.9707 10.0098C6.5207 10.0098 6.9707 9.55977 6.9707 9.00977C6.9707 8.45977 6.5207 8.00977 5.9707 8.00977Z"
+                  fill="#292D32"
+                />
+                <path
+                  d="M5.9707 12.0098C5.4107 12.0098 4.9707 12.4598 4.9707 13.0098C4.9707 13.5598 5.4207 14.0098 5.9707 14.0098C6.5207 14.0098 6.9707 13.5598 6.9707 13.0098C6.9707 12.4598 6.5207 12.0098 5.9707 12.0098Z"
+                  fill="#292D32"
+                />
+              </svg>
+            </span>
+            <span class="text-slate-600 font-black text-base lg:text-lg">پرداخت</span>
+          </div>
+          <div class="flex flex-col gap-y-4 px-6 sm:px-4 border-b border-dashed pb-2 lg:text-lg">
+            <div class="flex items-center justify-between text-indigo-900 font-black">
+              <span class="text-sm lg:text-lg"> جمع دوره ها: </span>
+              <span class="text-indigo-600">۹,۲۵۰,۰۰۰+</span>
+            </div>
+            <div class="flex items-center justify-between text-indigo-900 font-black">
+              <span class="text-sm lg:text-lg"> تخفیف ها: </span>
+              <span class="text-red-500">۹۲۵,۰۰۰-</span>
+            </div>
+          </div>
+          <div class="flex flex-col px-6 sm:px-4 gap-y-4">
+            <a href="" class="text-sm text-center text-slate-600 font-black">کد تخفیف دارم!</a>
+            <button class="flex justify-center items-baseline w-full text-white bg-indigo-600 rounded-xl py-2 px-1">
+              <span class="md:text-sm lg:text-base font-bold ml-2">پرداخت</span>
+              <span class="lg:text-lg font-black ml-1">۸,۳۲۵,۰۰۰</span>
+              <span class="text-xs">تومان</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
